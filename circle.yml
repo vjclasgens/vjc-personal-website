@@ -1,7 +1,7 @@
 machine:
   services:
 #    - docker
-  node:
+  node:8
       version:
         0.10.28
 
