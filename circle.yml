@@ -8,16 +8,13 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build -t vjclasgens/website .
+    - docker build -t vjclasgens/website:latest .
 test:
   pre:
     - npm install
-#    - npm start:
-#        background: true
     - sleep 5
   override:
-    - docker run -d -p 7000:7000 vjclasgens/website sleep 2
-    - curl --retry 10 --retry-delay 5 -v http://localhost:7080
+    - docker run -d -p 7000:7000 vjclasgens/website:latest sleep 2
     - npm run test-single-run
     - npm run protractor
 deployment:
