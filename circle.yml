@@ -16,9 +16,7 @@ test:
   override:
     - docker run -d -p 7000:7000 vjclasgens/website sleep 2
     - docker ps
-    - curl $ANG_URL_TEST
     - npm run test-single-run
-    - npm run protractor
 deployment:
 
 
