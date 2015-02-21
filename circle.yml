@@ -1,35 +1,24 @@
 machine:
   services:
-#    - docker
+    - docker
   node:
       version:
         0.10.28
 
 dependencies:
   override:
-#    - docker info
-#    - docker build -t vjclasgens/vjc-personal-website:$CIRCLE_SHA1 .
+    - docker info
+    - docker build -t vjclasgens/website:latest .
 test:
   pre:
     - npm install
-    - npm start:
-        background: true
     - sleep 5
   override:
-#    - docker run -d -p 8080:7000 vjclasgens/vjc-personal-website; sleep 2
-    #- curl --retry 10 --retry-delay 5 -v http://localhost:7080
+    - docker run -d -p 7000:7000 vjclasgens/website sleep 2
+    - docker ps
     - npm run test-single-run
-    #- npm run protractor
-#deployment:
-#  elasticbeanstalk:
-#    branch: master
-#    commands:
-#      - pwd
-#      - sudo pip install awscli==1.4.0
-#      - sed "s/<EMAIL>/$DOCKER_EMAIL/;s/<AUTH>/$DOCKER_AUTH/" < .dockercfg.template > ~/.dockercfg
-#      - cat ~/.dockercfg
-#      - docker push vjclasgens/vjc-personal-website:$CIRCLE_SHA1
-#      - bash -x deploy.sh $CIRCLE_SHA1
+deployment:
+
 
 
 
