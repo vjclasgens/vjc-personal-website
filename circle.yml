@@ -1,6 +1,6 @@
 machine:
   services:
-#    - docker
+    - docker
   node:
       version:
         0.10.28
