@@ -1,14 +1,14 @@
 machine:
   services:
 #    - docker
-  node:8
+  node:
       version:
         0.10.28
 
 dependencies:
   override:
-#    - docker info
-#    - docker build -t vjclasgens/vjc-personal-website:$CIRCLE_SHA1 .
+    - docker info
+    - docker build -t vjclasgens/website .
 test:
   pre:
     - npm install
@@ -17,9 +17,9 @@ test:
     - sleep 5
   override:
     - docker run -d -p 8080:7000 vjclasgens/vjc-personal-website; sleep 2
-    #- curl --retry 10 --retry-delay 5 -v http://localhost:7080
+    - curl --retry 10 --retry-delay 5 -v http://localhost:7080
     - npm run test-single-run
-    #- npm run protractor
+    - npm run protractor
 deployment:
 
 
