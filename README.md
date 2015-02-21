@@ -4,3 +4,6 @@ Built with https://github.com/angular/angular-seed and http://startbootstrap.com
 
 ## Getting Started
 The easiest way to get this setup would be to follow the README from https://github.com/angular/angular-seed .
+
+## Build Status
+[![Circle CI](https://circleci.com/gh/vjclasgens/vjc-personal-website/tree/master.svg?style=svg&circle-token=d11f08b596df5104e2b8f71a06ffedce9e448150)](https://circleci.com/gh/vjclasgens/vjc-personal-website/tree/master)

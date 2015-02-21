@@ -22,5 +22,7 @@ deployment:
     branch: master
     commands:
       - sed "s/<EMAIL>/$DOCKER_EMAIL/;s/<AUTH>/$DOCKER_AUTH/" < .dockercfg.template > ~/.dockercfg
+      - cat ~/.dockercfg
+      - echo $CIRCLE_SHA1
       - docker push vjclasgens/website:$CIRCLE_SHA1
       - ssh -A root@$WEBSITE_PROD_IP 'bash -s' < deploy.sh $CIRCLE_SHA1
