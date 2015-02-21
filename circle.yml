@@ -8,7 +8,7 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build -t vjclasgens/website:latest .
+    - docker build -t vjclasgens/website:$CIRCLE_SHA1 .
 test:
   pre:
     - npm install
@@ -18,7 +18,11 @@ test:
     - docker ps
     - npm run test-single-run
 deployment:
-
+  production:
+    branch: master
+    commands:
+      - docker push vjclasgens/website:$CIRCLE_SHA1
+      - ssh -A root@$WEBSITE_PROD_IP 'bash -s' < deploy.sh $CIRCLE_SHA1
 
 
 
