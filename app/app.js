@@ -2,11 +2,24 @@
 
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
-  'ngRoute',
-  'myApp.home',
-  'myApp.about',
-  'myApp.version'
-]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/home'});
+    'ngRoute',
+    'myApp.home',
+    'myApp.katie',
+    'myApp.version'
+])
+    .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+        $routeProvider
+            .when('/home', {
+                templateUrl : 'home/home.html',
+                controller : 'HomeCtrl'
+            })
+            .when('/katie',{
+            templateUrl: 'katie/katie.html',
+            controller: 'KatieCtrl'
+            })
+            .otherwise({
+                redirectTo: '/home'
+            });
+        // use the HTML5 History API
+        $locationProvider.html5Mode(true);
 }]);
