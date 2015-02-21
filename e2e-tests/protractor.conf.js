@@ -9,8 +9,7 @@ exports.config = {
     'browserName': 'chrome'
   },
 
-  baseUrl: 'http://localhost:7000/app/',
-
+  baseUrl: process.env.ANG_URL_TEST,
   framework: 'jasmine',
 
   jasmineNodeOpts: {
