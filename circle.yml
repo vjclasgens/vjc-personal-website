@@ -14,10 +14,9 @@ test:
     - npm install
     - sleep 5
   override:
-    - docker run -d -p 7000:7000 vjclasgens/website:latest sleep 2
+    - docker run -d -p 7000:7000 vjclasgens/website sleep 2
     - docker ps
-    # Have to export var for protractor to know what url to test
-    - export ANG_URL_TEST="http://localhost:7000"
+    - curl $ANG_URL_TEST
     - npm run test-single-run
     - npm run protractor
 deployment:
