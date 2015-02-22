@@ -21,6 +21,7 @@ deployment:
   production:
     branch: master
     commands:
+      - pwd
       - sed "s/<USERNAME>/$DOCKER_USERNAME/;s/<PASSWORD>/$DOCKER_PASSWORD/" < .dockercfg.template > ~/.dockercfg
       - echo pushing container to hub with tag $CIRCLE_SHA1
       - docker push vjclasgens/website:$CIRCLE_SHA1
