@@ -8,6 +8,9 @@ machine:
 dependencies:
   override:
     - docker info
+    - npm install
+    - npm install -g bower
+    - bower install angular-google-maps
     - docker build -t vjclasgens/website:$CIRCLE_SHA1 .
 test:
   pre:
