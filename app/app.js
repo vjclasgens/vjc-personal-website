@@ -5,6 +5,7 @@ angular.module('myApp', [
     'ngRoute',
     'myApp.home',
     'myApp.katie',
+    'myApp.vanjenson',
     'myApp.version'
 ])
     .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -16,6 +17,10 @@ angular.module('myApp', [
             .when('/katie',{
             templateUrl: 'katie/katie.html',
             controller: 'KatieCtrl'
+            })
+            .when('/vanjenson',{
+                templateUrl: 'vanjenson/vanjenson.html',
+                controller: 'VanjensonCtrl'
             })
             .otherwise({
                 redirectTo: '/home'

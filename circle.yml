@@ -14,7 +14,6 @@ dependencies:
     - docker build -t vjclasgens/website:$CIRCLE_SHA1 .
 test:
   pre:
-    - npm install
     - sleep 5
   override:
     - docker run -d -p 7000:7000 vjclasgens/website:$CIRCLE_SHA1; sleep 2

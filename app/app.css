@@ -64,3 +64,18 @@
 .download-header {
   color: #000000;
 }
+
+.van-body {
+    background-color: #808080;
+}
+/* Style for vanjenson*/
+.van-head {
+    text-align: center;
+}
+.van-img {
+    width:5%; /* you can use % */
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+}
